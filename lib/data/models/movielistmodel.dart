@@ -1,24 +1,20 @@
 import 'dart:developer';
 
-import 'package:moviedb_project/data/models/moviegetresponse.dart';
-
+import 'package:moviedb_project/domain/models/originmodel/originmodel.dart';
 
 class Jsonmodel {
- 
-
-  Jsonmodel();
-
-   List<MovieResponseModel>? movielist;
+  List<MovieResponseModel>? movielist;
 
   Jsonmodel.fromJson(Map<String, dynamic> json) {
     if (json['results'] != null) {
       movielist = <MovieResponseModel>[];
-      json['results'].forEach((v) {
-        movielist!.add( MovieResponseModel.fromJson(v));
-      });
-    }else{
 
-       log('jsonmodelparsing list is empty');
+      json['results'].forEach((v) {
+        movielist!.add(MovieResponseModel.fromJson(v));
+      });
+    } else {
+      log('jsonmodelparsing list is empty');
+      [];
     }
   }
 

@@ -5,7 +5,6 @@ import 'dart:developer';
 
 import 'package:http/http.dart' as http;
 import 'package:moviedb_project/data/core/api_constants.dart';
-import 'package:moviedb_project/exceptions/exceptions.dart';
 
 class Api_Fetch {
   Api_Fetch();
@@ -18,11 +17,11 @@ class Api_Fetch {
 
     if (response.statusCode == 200 || response.statusCode == 201) {
       final movie = jsonDecode(response.body) as Map<String, dynamic>;
-      // log('RESPONSE 200 >$movie');
+
       return movie;
     } else {
       log('API_CLIANT ERROR');
-      ApiFailures.socketexception('NET WORK ERROR');
+
       throw Exception(response.reasonPhrase);
     }
   }

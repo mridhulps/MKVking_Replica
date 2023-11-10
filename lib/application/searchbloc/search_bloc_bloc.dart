@@ -1,8 +1,9 @@
 import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:moviedb_project/data/models/moviegetresponse.dart';
+
 import 'package:moviedb_project/data/searchmovie_service/searchmovie_service.dart';
+import 'package:moviedb_project/domain/models/originmodel/originmodel.dart';
 
 part 'search_bloc_event.dart';
 part 'search_bloc_state.dart';

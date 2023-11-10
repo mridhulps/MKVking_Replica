@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviedb_project/application/homeblock/controller_bloc.dart';
@@ -17,7 +15,6 @@ import 'package:moviedb_project/presentaion/homepage/widgets/sliding_text/slidin
 import 'package:moviedb_project/presentaion/searchpage/searchresultpage.dart';
 import 'package:moviedb_project/presentaion/searchpage/searchtile.dart';
 
-import 'package:moviedb_project/presentaion/testingpage.dart';
 import 'package:number_paginator/number_paginator.dart';
 
 import '../../application/searchbloc/search_bloc_bloc.dart';
@@ -64,10 +61,7 @@ class HomePage extends StatelessWidget {
                                               children: [
                                                 InkWell(
                                                   onTap: () {
-                                                    Navigator.of(context).push(
-                                                        MaterialPageRoute(
-                                                            builder: (ctx) =>
-                                                                const TestingPage()));
+                                                    null;
                                                   },
                                                   child: IconShareButton(
                                                     sharetext: 'Sharer',

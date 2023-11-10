@@ -1,5 +1,3 @@
-// ignore_for_file: annotate_overrides, overridden_fields
-
 class MovieResponseModel {
   const MovieResponseModel({
     required this.adult,

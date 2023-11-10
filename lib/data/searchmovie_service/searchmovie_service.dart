@@ -1,7 +1,8 @@
 import 'dart:developer';
 
 import 'package:moviedb_project/data/core/api_cliant.dart';
-import 'package:moviedb_project/data/models/moviegetresponse.dart';
+
+import 'package:moviedb_project/domain/models/originmodel/originmodel.dart';
 
 import '../models/movielistmodel.dart';
 

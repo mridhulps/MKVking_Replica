@@ -10,11 +10,23 @@ class ControllerState {
 
   bool? isloading;
 
-  List<MovieResponseModel> nowplayingmovielist = [];
+  List<MovieResponseModel> nowplayingmovielist;
 
-  List<MovieResponseModel> upcominglist = [];
-  List<MovieResponseModel> latestmovielist = [];
-}
+  List<MovieResponseModel> upcominglist;
+  List<MovieResponseModel> latestmovielist;
+
+  // ControllerState.copywith(
+  //     {this.isloading,
+  //     this.nowplayingmovielist,
+  //     this.latestmovielist ,
+  //     this.upcominglist }) {
+  //   ControllerState(
+  //       isloading: isloading,
+  //       nowplayingmovielist: nowplayingmovielist,
+  //       latestmovielist: latestmovielist,
+  //       upcominglist: upcominglist);
+  }
+
 
 class Initialstate extends ControllerState {
   Initialstate()

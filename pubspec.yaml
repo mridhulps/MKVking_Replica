@@ -33,6 +33,3 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-  assets:
-    - assets/images/Anime.jpg
-    - assets/images/Your Name.jpg
