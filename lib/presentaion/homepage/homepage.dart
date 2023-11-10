@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget {
         body: SafeArea(child: BlocBuilder<ControllerBloc, ControllerState>(
           builder: (context, state) {
             return state.isloading == true
-                ? const ErrorPage()
+                ? const LoadingPage()
                 : Stack(
                     children: [
                       SingleChildScrollView(
@@ -412,7 +412,7 @@ class HomePage extends StatelessWidget {
                                   padding: EdgeInsets.only(
                                       top: 19, left: 10, right: 10),
                                   child: Text(
-                                    "MkvKIng.com (2022) Disclaimer:-MkvKing does not hosty any files on it's servers.All files or contents hosted on third party websites. MkvKing does not accept responsibility for content hosted on third party websites. We just index those links which are already available in internet ",
+                                    "MkvKIng.com (2022) Disclaimer:-MkvKing does not host any files on it's servers.All files or contents hosted on third party websites. MkvKing does not accept responsibility for content hosted on third party websites. We just index those links which are already available in internet ",
                                     style: TextStyle(color: white, height: 1.3),
                                   ),
                                 ),

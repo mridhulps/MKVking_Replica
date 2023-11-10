@@ -10,7 +10,7 @@ import 'package:moviedb_project/data/core/api_constants.dart';
 class Api_ClientImp {
   final client = http.Client();
 
-  Future<Map<String, dynamic>> getMovieResult(String uri) async {
+  Future<Map<String, dynamic>> getMovieResulttotalMap(String uri) async {
     final response = await client.get(Uri.parse(
         '${ApiConstantsUrls.baseurl}/$uri=${ApiConstantsUrls.apiKey}'));
 
@@ -19,7 +19,22 @@ class Api_ClientImp {
 
       return movieobj;
     } else {
-      log('httpclientErro');
+      log('httpclientError');
+      throw Exception(response.reasonPhrase);
+    }
+  }
+
+  Future<dynamic> searchgetlisttotlaMap(String name) async {
+    final response = await client.get(Uri.parse(
+        '${ApiConstantsUrls.baseurl}/search/movie?query=$name&api_key=${ApiConstantsUrls.apiKey}'));
+
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      final movie = jsonDecode(response.body) as Map<String, dynamic>;
+
+      return movie;
+    } else {
+      log('API_CLIANT ERROR');
+
       throw Exception(response.reasonPhrase);
     }
   }

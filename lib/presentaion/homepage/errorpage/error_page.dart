@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:moviedb_project/presentaion/const/const.dart';
 
-class ErrorPage extends StatelessWidget {
-  const ErrorPage({Key? key}) : super(key: key);
+class LoadingPage extends StatelessWidget {
+  const LoadingPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

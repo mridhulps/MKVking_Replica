@@ -1,20 +1,21 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:moviedb_project/data/data_sources/movie_remotedata.dart';
+
 import 'package:moviedb_project/domain/models/originmodel/originmodel.dart';
+import 'package:moviedb_project/infrastructure/movie_repo_imp/movie_repo_imp.dart';
 
 part 'controller_event.dart';
 part 'controller_state.dart';
 
 class ControllerBloc extends Bloc<ControllerEvent, ControllerState> {
   ControllerBloc() : super(Initialstate()) {
-    MovieDataImpt datasource = MovieDataImpt();
+    MovieRepoImp datasource = MovieRepoImp();
     on<GetNowplayingMovielist>(
         (event, emit) => getMovielist(event, emit, datasource));
   }
 }
 
 Future<void> getMovielist(GetNowplayingMovielist event,
-    Emitter<ControllerState> emit, MovieDataImpt datasource) async {
+    Emitter<ControllerState> emit, MovieRepoImp datasource) async {
   final state = ControllerState(
       isloading: true,
       nowplayingmovielist: [],

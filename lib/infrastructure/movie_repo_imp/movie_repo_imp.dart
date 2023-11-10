@@ -10,7 +10,7 @@ class MovieRepoImp implements MovieListRepo {
 
   @override
   Future<List<MovieResponseModel>> getLatestplayingMovielist() async {
-    final movie = await clientfetch.getMovieResult(ApiConstantsUrls.nowplaying);
+    final movie = await clientfetch.getMovieResulttotalMap(ApiConstantsUrls.nowplaying);
 
     final model = JsonConverterToModle.fromjson(json: movie).movielist;
 
@@ -19,7 +19,7 @@ class MovieRepoImp implements MovieListRepo {
 
   @override
   Future<List<MovieResponseModel>> getNowplayingMovielist() async {
-    final movie = await clientfetch.getMovieResult(ApiConstantsUrls.nowplaying);
+    final movie = await clientfetch.getMovieResulttotalMap(ApiConstantsUrls.nowplaying);
     final model = JsonConverterToModle.fromjson(json: movie).movielist;
 
     return model;
@@ -27,7 +27,7 @@ class MovieRepoImp implements MovieListRepo {
 
   @override
   Future<List<MovieResponseModel>> getUpcomingplayingMovielist() async {
-    final movie = await clientfetch.getMovieResult(ApiConstantsUrls.nowplaying);
+    final movie = await clientfetch.getMovieResulttotalMap(ApiConstantsUrls.nowplaying);
     final model = JsonConverterToModle.fromjson(json: movie).movielist;
 
     return model;
