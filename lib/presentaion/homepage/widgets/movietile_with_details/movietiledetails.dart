@@ -28,7 +28,7 @@ class MovieTileWithDetails extends StatelessWidget {
       required this.ratingcontainerisvisible,
       required this.title,
       required this.year,
-       required this.rating});
+      required this.rating});
 
   @override
   Widget build(BuildContext context) {
@@ -59,17 +59,18 @@ class MovieTileWithDetails extends StatelessWidget {
                   ),
                   height: 20,
                   width: 10 * 5,
-                  child:  Center(
+                  child: Center(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                       const Text(
+                        const Text(
                           '⭐',
                           style: TextStyle(color: Colors.white, fontSize: 8),
                         ),
                         Text(
-                          rating??'',
-                          style: const TextStyle(color: Colors.white, fontSize: 12.2),
+                          rating != null ? rating!.substring(0, 3) : '0.0',
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 12.2),
                         ),
                       ],
                     ),

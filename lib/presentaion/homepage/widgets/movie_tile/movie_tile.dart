@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:moviedb_project/data/core/api_constants.dart';
 
@@ -65,7 +63,9 @@ class MovieTile extends StatelessWidget {
                           ),
                           rating != null
                               ? Text(
-                                  rating!.length != 1 ? '$rating' : '$rating.0',
+                                  rating != null
+                                      ? rating!.substring(0, 3)
+                                      : '0.0',
                                   style: const TextStyle(
                                       color: Colors.white, fontSize: 12.2),
                                 )

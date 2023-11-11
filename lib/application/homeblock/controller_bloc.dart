@@ -31,7 +31,7 @@ Future<void> getMovielist(GetNowplayingMovielist event,
   final currentstate = ControllerState(
       isloading: false,
       nowplayingmovielist: nowplayinglist,
-      latestmovielist: latestplayinglist,
-      upcominglist: upcominglist);
+      latestmovielist: latestplayinglist.sublist(0, 15),
+      upcominglist: upcominglist.sublist(0, 7));
   emit(currentstate);
 }

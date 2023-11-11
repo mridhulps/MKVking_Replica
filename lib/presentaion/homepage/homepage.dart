@@ -151,13 +151,6 @@ class HomePage extends StatelessWidget {
                                                           ControllerState>(
                                                         builder:
                                                             (context, state) {
-                                                          if (state.isloading ==
-                                                              true) {
-                                                            return const Center(
-                                                                child:
-                                                                    CircularProgressIndicator());
-                                                          }
-
                                                           return GridView
                                                               .builder(
                                                             physics:
@@ -301,6 +294,8 @@ class HomePage extends StatelessWidget {
                                       ),
                                       BottomFields(
                                         child: TextFormField(
+                                          style: const TextStyle(
+                                              color: Colors.white),
                                           decoration: const InputDecoration(
                                               border: InputBorder.none,
                                               contentPadding: EdgeInsets.only(
@@ -384,7 +379,7 @@ class HomePage extends StatelessWidget {
                                                   const NeverScrollableScrollPhysics(),
                                               itemBuilder: (context, index) {
                                                 final states = state
-                                                    .nowplayingmovielist[index]
+                                                    .upcominglist[index]
                                                     .posterPath;
                                                 return Mostiewmoviestile(
                                                   posterimage: states ?? '',
@@ -396,8 +391,8 @@ class HomePage extends StatelessWidget {
                                                         color: white,
                                                         thickness: 1.5,
                                                       )),
-                                              itemCount: state
-                                                  .nowplayingmovielist.length);
+                                              itemCount:
+                                                  state.upcominglist.length);
                                         }),
                                       ),
                                     ],

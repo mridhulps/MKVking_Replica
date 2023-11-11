@@ -26,7 +26,7 @@ class RowMovietiles extends StatelessWidget {
                 controller: controller,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, buildindex) {
-                  final movie = state.upcominglist[buildindex].posterPath;
+                  final movie = state.latestmovielist[buildindex].posterPath;
                   return MovieTile(
                     width: 50 * 2.5,
                     image: '$movie',
@@ -38,7 +38,7 @@ class RowMovietiles extends StatelessWidget {
                 separatorBuilder: (context, index) {
                   return width10;
                 },
-                itemCount: state.upcominglist.length,
+                itemCount: state.latestmovielist.length,
               ),
               Align(
                 alignment: Alignment.center,

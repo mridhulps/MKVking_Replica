@@ -8,13 +8,13 @@ class SearchTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: const TextStyle(color: Colors.white),
       decoration: const InputDecoration(
           border: InputBorder.none,
           contentPadding: EdgeInsets.only(left: 10, bottom: 8),
           hintText: 'Enter Movie',
           hintStyle: TextStyle(color: Colors.white24)),
       onChanged: (value) {
-        print(value);
         context
             .read<SearchBlocBloc>()
             .add(SearchResult(isresultopen: true, searchvalue: value));
