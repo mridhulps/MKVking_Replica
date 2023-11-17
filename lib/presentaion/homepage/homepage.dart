@@ -1,9 +1,13 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviedb_project/application/homeblock/controller_bloc.dart';
 
 import 'package:moviedb_project/presentaion/const/const.dart';
-import 'package:moviedb_project/presentaion/homepage/errorpage/error_page.dart';
+import 'package:moviedb_project/presentaion/Loading_page/loading.dart';
+import 'package:moviedb_project/presentaion/homepage/widgets/Bottomscrollcontainer/bottomscrollcontainer.dart';
 import 'package:moviedb_project/presentaion/homepage/widgets/custom_appbar/custom_appbar.dart';
 import 'package:moviedb_project/presentaion/homepage/widgets/more_moviebutton/more_moviebutton.dart';
 import 'package:moviedb_project/presentaion/homepage/widgets/movie_tile/movie_tile.dart';
@@ -21,8 +25,24 @@ import '../../application/searchbloc/search_bloc_bloc.dart';
 import 'widgets/bottomfields/botttomfields.dart';
 import 'widgets/mostmoviestile/mostmoviestiles.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  late ScrollController scrollcontroller;
+
+  @override
+  void initState() {
+    scrollcontroller = ScrollController();
+    scrollcontroller.addListener(() {
+      scrolltimevisible(context);
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,15 +51,16 @@ class HomePage extends StatelessWidget {
     });
 
     return Scaffold(
-        backgroundColor: scaffoldcolor,
-        body: SafeArea(child: BlocBuilder<ControllerBloc, ControllerState>(
+      backgroundColor: scaffoldcolor,
+      body: SafeArea(
+        child: BlocBuilder<ControllerBloc, ControllerState>(
           builder: (context, state) {
             return state.isloading == true
                 ? const LoadingPage()
                 : Stack(
                     children: [
                       SingleChildScrollView(
-                        physics: const BouncingScrollPhysics(),
+                        controller: scrollcontroller,
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -379,10 +400,11 @@ class HomePage extends StatelessWidget {
                                                   const NeverScrollableScrollPhysics(),
                                               itemBuilder: (context, index) {
                                                 final states = state
-                                                    .upcominglist[index]
-                                                    .posterPath;
+                                                    .upcominglist[index];
+                                                   
                                                 return Mostiewmoviestile(
-                                                  posterimage: states ?? '',
+                                                  posterimage: states.posterPath ?? '',
+                                                  title: states.title??'',
                                                 );
                                               },
                                               separatorBuilder:
@@ -424,23 +446,33 @@ class HomePage extends StatelessWidget {
                               )
                             ]),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Align(
-                            alignment: Alignment.bottomRight,
-                            child: Container(
-                              width: 45,
-                              height: 45,
-                              color: orangecolor,
-                              child: const Icon(
-                                Icons.keyboard_arrow_up,
-                                color: white,
-                              ),
-                            )),
-                      ),
+                      ValueListenableBuilder(
+                          valueListenable: upscrollcontainernotifier,
+                          builder: (context, snapshot, _) {
+                            if (snapshot == false) {
+                              return const SizedBox();
+                            }
+                            return BottomScrollContainer(
+                                scrollcontroller: scrollcontroller);
+                          }),
                     ],
                   );
           },
-        )));
+        ),
+      ),
+    );
+  }
+
+  //WHEM SCROLLING DOWN THAT TIME UPSCROLL CONTAINER SHOW IN BOTTOM
+  scrolltimevisible(BuildContext context) {
+    final offst = scrollcontroller.offset;
+
+    if (offst > 750) {
+      upscrollcontainernotifier.value = true;
+    } else {
+      upscrollcontainernotifier.value = false;
+    }
   }
 }
+
+ValueNotifier<bool> upscrollcontainernotifier = ValueNotifier(false);

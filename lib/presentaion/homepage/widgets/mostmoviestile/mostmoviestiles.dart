@@ -7,11 +7,13 @@ import 'package:moviedb_project/presentaion/homepage/widgets/movie_tile/movie_ti
 class Mostiewmoviestile extends StatelessWidget {
 
   final  String posterimage;
+  final String title;
   
 
   const Mostiewmoviestile({
     super.key,
     required this.posterimage,
+    required this.title
   
   });
 
@@ -36,7 +38,7 @@ class Mostiewmoviestile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Talk to Me (2023)',
+                title,
                 style: TextStyle(color: orangecolor),
               ),
               height10,

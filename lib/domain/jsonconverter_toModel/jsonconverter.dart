@@ -16,8 +16,4 @@ class JsonConverterToModle {
       return movielist.add(MovieResponseModel.fromJson(v));
     });
   }
-
-  //  JsonConverterToModle.tojson({required  Map<String,dynamic>movieresult}){
-
-  //  }
 }

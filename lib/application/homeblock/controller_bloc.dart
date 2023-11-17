@@ -9,6 +9,7 @@ part 'controller_state.dart';
 class ControllerBloc extends Bloc<ControllerEvent, ControllerState> {
   ControllerBloc() : super(Initialstate()) {
     MovieRepoImp datasource = MovieRepoImp();
+
     on<GetNowplayingMovielist>(
         (event, emit) => getMovielist(event, emit, datasource));
   }

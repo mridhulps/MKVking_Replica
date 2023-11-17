@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviedb_project/application/homeblock/controller_bloc.dart';
 import 'package:moviedb_project/application/searchbloc/search_bloc_bloc.dart';
 
-
 import 'package:moviedb_project/presentaion/homepage/homepage.dart';
 
 void main() async {

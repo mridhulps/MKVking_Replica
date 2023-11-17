@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moviedb_project/application/homeblock/controller_bloc.dart';
@@ -6,11 +8,25 @@ import 'package:moviedb_project/presentaion/const/const.dart';
 import 'package:moviedb_project/presentaion/homepage/widgets/movie_tile/movie_tile.dart';
 
 class RowMovietiles extends StatelessWidget {
-  RowMovietiles({
+   RowMovietiles({
     super.key,
   });
 
   final ScrollController controller = ScrollController();
+
+
+
+    //   final List<String> ratinglist=[
+
+    //       'WEB-DL'
+    //       'BluRay'
+    //  ];
+
+      final ratinglist=List.generate(15, (index) => 'BluRay');
+ 
+
+
+
 
   @override
   Widget build(context) {
@@ -25,14 +41,20 @@ class RowMovietiles extends StatelessWidget {
               ListView.separated(
                 controller: controller,
                 scrollDirection: Axis.horizontal,
+
+
                 itemBuilder: (context, buildindex) {
                   final movie = state.latestmovielist[buildindex].posterPath;
+                  final list=ratinglist[buildindex];
+                  
+
                   return MovieTile(
                     width: 50 * 2.5,
                     image: '$movie',
                     qualitycontaineralign: Alignment.topRight,
                     isdurationcontaierisvisible: false,
                     isratingcontainerisvisible: false,
+                     quality: list,
                   );
                 },
                 separatorBuilder: (context, index) {
@@ -48,8 +70,6 @@ class RowMovietiles extends StatelessWidget {
                     //LEFT SLIDING BUTTON
                     InkWell(
                       onTap: () {
-                        print('haii');
-
                         scrollcontroller(0);
                       },
                       child: Container(
@@ -98,14 +118,14 @@ class RowMovietiles extends StatelessWidget {
   }
 
   scrollcontroller(int number) {
-    final scroll = controller.position.maxScrollExtent;
-
-    final item = scroll + maxwidth;
+    final scroll = controller.position.maxScrollExtent - 100;
 
     if (number == 0) {
-      controller.jumpTo(-item);
+      controller.animateTo(-scroll,
+          duration:const Duration(milliseconds: 3000), curve: Curves.decelerate);
     } else {
-      controller.jumpTo(item);
+      controller.animateTo(scroll,
+          duration: const Duration(milliseconds: 2000), curve: Curves.decelerate);
     }
   }
 }

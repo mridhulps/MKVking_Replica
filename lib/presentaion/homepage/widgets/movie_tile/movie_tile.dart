@@ -7,6 +7,7 @@ class MovieTile extends StatelessWidget {
   final double? height;
 
   final String? rating;
+  final String? quality;
 
   final AlignmentGeometry? qualitycontaineralign;
   bool? isqualitycontainervisible = false;
@@ -21,6 +22,7 @@ class MovieTile extends StatelessWidget {
       this.image,
       this.height,
       this.rating,
+      this.quality,
       this.qualitycontaineralign,
       this.isdurationcontaierisvisible,
       this.isratingcontainerisvisible,
@@ -86,10 +88,10 @@ class MovieTile extends StatelessWidget {
                     borderRadius:
                         BorderRadius.only(topRight: Radius.circular(5)),
                     color: Colors.green),
-                child: const Center(
+                child: Center(
                   child: Text(
-                    'WEB-DL',
-                    style: TextStyle(
+                    quality ?? 'WEB-DL',
+                    style: const TextStyle(
                         color: Colors.white,
                         fontSize: 10,
                         overflow: TextOverflow.ellipsis,
