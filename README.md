@@ -5,7 +5,7 @@ MkvKing Original
 ![original2]([https://your-image-url.type](https://github.com/mridhulps/MKVking_Replica/assets/150352769/0cdb9072-3e39-4816-b809-9a1502dd2d87)) with <img src="https://github.com/mridhulps/MKVking_Replica/assets/150352769/0cdb9072-3e39-4816-b809-9a1502dd2d87 " width="300" height="600"> 
 ![original3]([https://your-image-url.type](https://github.com/mridhulps/MKVking_Replica/assets/150352769/eb7b8680-8973-49b4-baf2-77d7c86b2c1e)) with <img src="https://github.com/mridhulps/MKVking_Replica/assets/150352769/eb7b8680-8973-49b4-baf2-77d7c86b2c1e" width="300" height="600">
 <p align="center">
-  <img width="460" height="300" src="https://github.com/mridhulps/MKVking_Replica/assets/150352769/eb7b8680-8973-49b4-baf2-77d7c86b2c1e">
+  <img width="300" height="600" src="https://github.com/mridhulps/MKVking_Replica/assets/150352769/eb7b8680-8973-49b4-baf2-77d7c86b2c1e">
 </p>
 
 
